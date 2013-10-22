@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>slideBtn的demo</title>
+    <script src="http://a.tbcdn.cn/??s/kissy/1.3.0/kissy-min.js,apps/e/brix/2.0/brix-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://a.tbcdn.cn/apps/e/brix/2.0/brix-min.css">
+    <link rel="stylesheet" href="brixbtn.css">
+</head>
+<style>
+    .intro {margin: 15px;}
+    .omob-ipone {background: url("http://gtms01.alicdn.com/tps/i1/T1IyPOFcXeXXaeGXDX-802-231.png") no-repeat; width: 678px; height: 120px; padding: 111px 0 0 123px;}
+    .omob-ipone li {float: left; *display: inline;}
+</style>
+<body>
+<h1 style="font-size:18px;margin-bottom:20px">brix style slideBtn的demo</h1>
+<a href="index.html">iphone样式的开关 </a>
+<br/>
+<div>
+    <div class="omob-ipone">
+    <ul>
+        <li>
+            <div class="iphone-btn"><input type="checkbox" id="J_disabled"  /></div>
+        </li>
+        <li style="margin-left:370px;">
+            <div class="iphone-btn"><input type="checkbox" id="J_open"  /></div>
+        </li>
+        <li style="margin-left:412px;margin-top:16px;">
+            <div class="iphone-btn"><input type="checkbox" id="J_close"  /></div>
+        </li>
+        
+    </ul>
+</div>
+   <div style="font-weight: bold">定向推广站外的状态是：<span id="J_result"></span></div>
+</div>
+
+<script>
+    var S = KISSY;
+    S.Config.debug=true;
+    if (S.Config.debug) {
+        var srcPath = "../../../";
+        S.config({
+            packages:[
+                {
+                    name:"gallery",
+                    path:srcPath,
+                    charset:"utf-8",
+                    ignorePackageNameInUri:true
+                }
+            ]
+        });
+    }
+
+    S.use('gallery/slideBtn/1.0/index', function (S, SlideBtn) {
+          var a=new SlideBtn({
+            baseEl:'#J_disabled',
+            slideSize:41,
+            disabled:true
+          });
+          var b=new SlideBtn({
+            baseEl:'#J_open',
+            defaultStatus:'checked',
+            handleSize:16,
+            slideSize:41,
+            disabled:false
+          });
+          var c=new SlideBtn({
+            baseEl:'#J_close',
+            defaultStatus:'',
+            handleSize:16,
+            slideSize:41,
+            disabled:false,
+            onChange:function(elem,status){
+                var text=status?'投放':'不投放';
+                S.one('#J_result').html(text);
+            }
+          });
+          var platformText=c.getSlideStatus()?'投放':'不投放';
+          S.one('#J_result').html(platformText);
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+    "name": "slideBtn",
+    "version": "1.0",
+    "desc": "pc/mobile均可使用的拖拽开关",
+    "cover": "",
+    "tag":"slideBtn",
+    "author": {
+        "name": "思霏",
+        "email": "sifei.zm@taobao.com",
+        "page": ""
+    },
+    "type": "kissy-gallery",
+    "type-url": "http://gallery.kissyui.com/guide"
+}
